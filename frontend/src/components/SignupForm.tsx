@@ -20,7 +20,7 @@ export const SignupForm = () => {
             const jwt = response.data.token
             const user = response.data.name
             localStorage.setItem("token", jwt)
-            localStorage.setItem("name", user)
+            localStorage.setItem("user", user)
             navigate("/blogs")    
         }catch(e){
             alert("An error occurred while signup")
