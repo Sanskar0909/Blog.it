@@ -6,7 +6,7 @@ export const Quote = () => {
                     "A beautiful blogging website to share my thoughts with the world"
                 </div>
                 <div className="mt-5 max-w-md font-semibold text-lg">
-                    Not Karen
+                    Jonathan Fish
                 </div>
                 <div className="max-w-md font-medium text-md">
                     CEO, Acme INC
