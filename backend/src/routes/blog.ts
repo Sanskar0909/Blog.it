@@ -103,8 +103,8 @@ blogRouter.get('/bulk', async (c) => {
                     select: {
                         name: true
                     }
-                }
-
+                },
+                time: true
             }
         })
 
@@ -136,7 +136,8 @@ blogRouter.get('/:id', async(c) => {
                     select: {
                         name: true
                     }
-                }
+                },
+                time: true
             }
         })
         

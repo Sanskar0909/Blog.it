@@ -3,6 +3,21 @@ import { Appbar } from "./Appbar"
 import { Avatar } from "./BlogLayout"
 
 export const DetailedBlog = ({ blog }: { blog: blogType }) => {
+    let formattedTime = "Not Date";
+    if (blog.time) {
+        const date = new Date(blog.time);
+        if (!isNaN(date.getTime())) {
+            formattedTime = date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        else{
+            console.error("Invalid", blog.time)
+        }
+    }
+
     return <div>
             <Appbar />
         <div className="flex justify-center">
@@ -12,7 +27,7 @@ export const DetailedBlog = ({ blog }: { blog: blogType }) => {
                         {blog.title}
                     </div>
                     <div className="text-slate-500 text-sm mt-4">
-                        Posted on July 24, 2023
+                        Posted on {formattedTime}
                     </div>
                     <div className="mt-2 text-justify">
                         {blog.content}
@@ -20,7 +35,7 @@ export const DetailedBlog = ({ blog }: { blog: blogType }) => {
                 </div>
                 <div className="col-span-4 ml-10">
                     <div>
-                        Author
+                        Author 
                     </div>
                     <div className="flex justify-center">
                         <div className="flex flex-col justify-center">

@@ -5,7 +5,7 @@ interface BlogLayoutProps{
     name: string,
     title: string,
     content: string,
-    date: string,
+    time: Date,
     id: string
 }
 export const BlogLayout = ({
@@ -13,8 +13,22 @@ export const BlogLayout = ({
     name,
     title,
     content,
-    date
+    time
 }: BlogLayoutProps) => {
+    let formattedTime = "Not Date";
+    if (time) {
+        const date = new Date(time);
+        if (!isNaN(date.getTime())) {
+            formattedTime = date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        else{
+            console.error("Invalid", time)
+        }
+    }
     return <Link to={`/blog/${id}`}>
         <div className="flex flex-col justify-center w-screen max-w-xl px-4 cursor-pointer">
             <div className="">
@@ -24,7 +38,7 @@ export const BlogLayout = ({
                     </div>
                     <div className="mx-2"> {name} </div>
                     <div></div>
-                    <div className="text-slate-500 text-sm font-light">&#183; {date}</div>
+                    <div className="text-slate-500 text-sm font-light">&#183; {formattedTime}</div>
                 </div>
 
                 <div className="font-bold text-2xl mt-2">

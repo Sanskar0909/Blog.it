@@ -9,6 +9,7 @@ export interface blogType {
     "author": {
         "name": string
     }
+    "time": Date
 }
 
 export const useBlog = ({ id } : { id: string }) => {

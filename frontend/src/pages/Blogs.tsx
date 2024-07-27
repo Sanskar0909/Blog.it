@@ -29,7 +29,7 @@ export const Blogs = () => {
                         title={blog.title} 
                         name={blog.author.name}
                         content={blog.content}
-                        date="2nd July 2024"
+                        time={blog.time}
                     />
             )}
         </div>
